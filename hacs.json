@@ -1,5 +1,7 @@
-{
-  "name": "Power Flow Card Plus",
+﻿{
+  "name": "Power Flow Card Eco",
+  "content_in_root": false,
+  "filename": "dist/power-flow-card-eco.js",
   "render_readme": true,
-  "homeassistant": "2023.12.3"
+  "homeassistant": "2023.8.0"
 }

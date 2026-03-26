@@ -1,0 +1,15 @@
+﻿name: Validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure HACS file exists
+        run: test -f dist/power-flow-card-eco.js
+      - name: Ensure metadata exists
+        run: test -f hacs.json
