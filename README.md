@@ -8,7 +8,7 @@ The card is written from scratch and focuses on smooth rendering with low CPU us
 
 - New codebase (no forked source code)
 - HACS-ready repository structure
-- Flow animation quality levels: `auto`, `high`, `medium`, `low`, `off`
+- Flow animation quality levels: `auto`, `high`, `medium`, `low`, `ultra_low`, `off`
 - Auto mode detects low-end Android and applies a lighter animation profile
 - Animations pause automatically when the card is off-screen or tab is hidden
 - No heavy SVG `animateMotion` dots
@@ -71,7 +71,7 @@ entities:
 | `type` | `string` | required | `custom:power-flow-card-eco` |
 | `title` | `string` | `Power Flow Eco` | Card title |
 | `clickable_entities` | `boolean` | `true` | Open entity details on tap |
-| `animation_quality` | `string` | `auto` | `auto`, `high`, `medium`, `low`, `off` |
+| `animation_quality` | `string` | `auto` | `auto`, `high`, `medium`, `low`, `ultra_low`, `off` |
 | `battery_charging_positive` | `boolean` | `true` | For signed battery sensor direction |
 | `watt_threshold` | `number` | `1000` | Switch from W to kW display |
 | `w_decimals` | `number` | `0` | Decimals for W |
@@ -89,6 +89,14 @@ entities:
 type: custom:power-flow-card-eco
 animation_quality: low
 min_flow_show_watt: 20
+```
+
+## Recommended for very old tablets
+
+```yaml
+type: custom:power-flow-card-eco
+animation_quality: ultra_low
+min_flow_show_watt: 25
 ```
 
 ## License

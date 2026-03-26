@@ -34,6 +34,13 @@
       lineOpacity: 0.82,
       minFlowShowWatt: 12,
     },
+    ultra_low: {
+      animated: false,
+      flowDuration: 0,
+      cardShadow: false,
+      lineOpacity: 0.72,
+      minFlowShowWatt: 20,
+    },
     off: {
       animated: false,
       flowDuration: 0,
@@ -97,15 +104,17 @@
     const cores = Number(navigator.hardwareConcurrency || 8);
     const memory = Number((navigator).deviceMemory || 4);
 
+    if (isAndroid && (cores <= 2 || memory <= 2)) return "ultra_low";
     if (isAndroid && (cores <= 4 || memory <= 3)) return "low";
-    if (cores <= 2) return "low";
+    if (cores <= 2) return "ultra_low";
+    if (cores <= 4) return "medium";
     return "high";
   }
 
   function resolveQuality(config) {
     const q = String(config.animation_quality || "auto").toLowerCase();
     if (q === "auto") return detectAutoQuality();
-    if (q === "high" || q === "medium" || q === "low" || q === "off") return q;
+    if (q === "high" || q === "medium" || q === "low" || q === "ultra_low" || q === "off") return q;
     return "auto";
   }
 
